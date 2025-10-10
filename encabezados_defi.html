@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="fav_Aquiles.png" type="image/x-icon">
+    <title>Vulnerabilidades y Encabezados de Seguridad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('/fuego.gif');
+            color: #ffffff;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ee0707;
+            text-align: left;
+        }
+        th {
+            background-color: #ff0303;
+        }
+        .category {
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 50%;
+            margin-bottom: 20px;
+        }
+        .vulnerabilities-table {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Encabezados de Seguridad</h1>
+
+<div class="search-container">
+    <input type="text" id="searchInput" onkeyup="searchVulnerabilities()" placeholder="Buscar vulnerabilidad por nombre..." title="Type in a name">
+</div>
+
+<br>
+<div id="client-vulnerabilities" class="category">
+    <h3>CLIENTE</h3>
+    <table id="clientTable">
+        <thead>
+            <tr>
+                <th>Tipo de Vulnerabilidad</th>
+                <th>Encabezado de Seguridad Relacionado</th>
+                <th>Resumen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Open Redirect</td>
+                <td>Location (header)</td>
+                <td>Redirige al usuario sin verificar la validez de los destinos.</td>
+            </tr>
+            <tr>
+                <td>Email-attacks</td>
+                <td>X-Mailer</td>
+                <td>La aplicación permite manipular cabeceras de correo.</td>
+            </tr>
+            <tr>
+                <td>Quick-tricks</td>
+                <td>Ninguno</td>
+                <td>Vulnerabilidades menores que pueden ser explotadas rápidamente.</td>
+            </tr>
+            <tr>
+                <td>Insecure Source Code Management</td>
+                <td>X-Content-Type-Options</td>
+                <td>El código fuente está expuesto o mal gestionado.</td>
+            </tr>
+            <tr>
+                <td>Header-injections</td>
+                <td>Content-Type</td>
+                <td>Permite la inyección de encabezados no controlados.</td>
+            </tr>
+            <tr>
+                <td>CORS</td>
+                <td>Access-Control-Allow-Origin</td>
+                <td>Permite solicitudes de orígenes no confiables.</td>
+            </tr>
+            <tr>
+                <td>CSRF</td>
+                <td>SameSite (cookie attribute)</td>
+                <td>No implementa token CSRF o tiene protección insuficiente.</td>
+            </tr>
+            <tr>
+                <td>Cookies</td>
+                <td>Set-Cookie</td>
+                <td>Cookies sin flags de seguridad.</td>
+            </tr>
+            <tr>
+                <td>Cache</td>
+                <td>Cache-Control, Pragma, Expires</td>
+                <td>Permite manipulación de la caché de respuestas sensibles.</td>
+            </tr>
+            <tr>
+                <td>SSTI</td>
+                <td>Content-Type</td>
+                <td>Permite la inyección de plantillas sin sanitizar.</td>
+            </tr>
+            <tr>
+                <td>CSP</td>
+                <td>Content-Security-Policy</td>
+                <td>No tiene políticas de CSP adecuadas.</td>
+            </tr>
+            <tr>
+                <td>XSS</td>
+                <td>Content-Security-Policy, X-XSS-Protection</td>
+                <td>Permite la ejecución de código malicioso inyectado en entradas de usuario.</td>
+            </tr>
+            <tr>
+                <td>WEBSOCKETS</td>
+                <td>Sec-WebSocket-Protocol</td>
+                <td>No valida correctamente las solicitudes de WebSocket.</td>
+            </tr>
+            <tr>
+                <td>XXE</td>
+                <td>Content-Type: application/xml</td>
+                <td>No desactiva adecuadamente las entidades externas en XML.</td>
+            </tr>
+            <tr>
+                <td>Deserialization</td>
+                <td>Content-Type</td>
+                <td>Deserializa datos de forma insegura.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div id="server-vulnerabilities" class="category">
+    <h3>SERVIDOR</h3>
+    <table id="serverTable">
+        <thead>
+            <tr>
+                <th>Tipo de Vulnerabilidad</th>
+                <th>Encabezado de Seguridad Relacionado</th>
+                <th>Resumen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Command-injection</td>
+                <td>Content-Security-Policy</td>
+                <td>Acepta entradas de usuario no filtradas y ejecuta comandos en el sistema.</td>
+            </tr>
+            <tr>
+                <td>CRLF</td>
+                <td>Transfer-Encoding: chunked</td>
+                <td>Permite inyecciones de encabezados a través de parámetros no sanitizados.</td>
+            </tr>
+            <tr>
+                <td>General-info</td>
+                <td>Servidor (X-Powered-By)</td>
+                <td>Exposición de información sensible sobre la configuración del servidor.</td>
+            </tr>
+            <tr>
+                <td>IDOR</td>
+                <td>Authorization (header)</td>
+                <td>Permite el acceso no autorizado a recursos sin la verificación adecuada de la autorización.</td>
+            </tr>
+            <tr>
+                <td>Account Takeover</td>
+                <td>Authorization (header)</td>
+                <td>Explotación de vulnerabilidades de autenticación para tomar control de una cuenta.</td>
+            </tr>
+            <tr>
+                <td>inyección DOOM</td>
+                <td>Content-Type</td>
+                <td>Explotación de vulnerabilidades de inyección para dañar la lógica del servidor.</td>
+            </tr>
+            <tr>
+                <td>Vhosts (Virtual Hosts)</td>
+                <td>Host</td>
+                <td>Falta de correcta configuración de virtual hosts en el servidor web.</td>
+            </tr>
+            <tr>
+                <td>Crawl-fuzz</td>
+                <td>Cache-Control</td>
+                <td>Permite el acceso no autorizado a endpoints internos del servidor.</td>
+            </tr>
+            <tr>
+                <td>CORS</td>
+                <td>Access-Control-Allow-Origin</td>
+                <td>Mal configuración de las cabeceras CORS, lo que permite acceso desde orígenes no seguros.</td>
+            </tr>
+            <tr>
+                <td>Business Logic Errors</td>
+                <td>Authorization (header)</td>
+                <td>Errores en la lógica de negocio que pueden ser explotados para obtener acceso no autorizado.</td>
+            </tr>
+            <tr>
+                <td>SSRF</td>
+                <td>Content-Type</td>
+                <td>Permite que un atacante realice solicitudes maliciosas a servicios internos.</td>
+            </tr>
+            <tr>
+                <td>Dns-rebinding</td>
+                <td>Host</td>
+                <td>Permite al atacante manipular solicitudes DNS para redirigirlas a un servidor controlado por él.</td>
+            </tr>
+            <tr>
+                <td>Inyección XSLT</td>
+                <td>Content-Type</td>
+                <td>Permite inyección de código malicioso a través de archivos XSLT.</td>
+            </tr>
+            <tr>
+                <td>Inyección ORM</td>
+                <td>Authorization (header)</td>
+                <td>Explotación de vulnerabilidades en el manejo de bases de datos mediante ORM.</td>
+            </tr>
+            <tr>
+                <td>Inyección LDAP</td>
+                <td>Authorization (header)</td>
+                <td>Permite la manipulación de consultas LDAP a través de entradas no controladas.</td>
+            </tr>
+            <tr>
+                <td>Inyección SAML</td>
+                <td>Authorization (header)</td>
+                <td>Manipulación de datos SAML para falsificar la autenticación.</td>
+            </tr>
+            <tr>
+                <td>SQLi</td>
+                <td>Content-Type</td>
+                <td>Permite la inyección de consultas SQL maliciosas.</td>
+            </tr>
+            <tr>
+                <td>SQL</td>
+                <td>Content-Type</td>
+                <td>Errores en la ejecución de consultas SQL pueden exponer la base de datos.</td>
+            </tr>
+            <tr>
+                <td>No/SQL</td>
+                <td>Authorization (header)</td>
+                <td>Vulnerabilidad en bases de datos NoSQL que permite inyecciones de código malicioso.</td>
+            </tr>
+            <tr>
+                <td>Parameter-pollution</td>
+                <td>Content-Type</td>
+                <td>Inyección de parámetros duplicados o maliciosos para alterar la lógica del servidor.</td>
+            </tr>
+            <tr>
+                <td>Prototype-pollution</td>
+                <td>Content-Type</td>
+                <td>Manipulación de prototipos en objetos JavaScript para modificar el comportamiento del servidor.</td>
+            </tr>
+            <tr>
+                <td>Request Smuggling</td>
+                <td>Transfer-Encoding</td>
+                <td>Manipulación de solicitudes HTTP para eludir las defensas del servidor.</td>
+            </tr>
+            <tr>
+                <td>Condición de carrera</td>
+                <td>Authorization (header)</td>
+                <td>Condiciones de carrera que permiten acceder a recursos sin la validación correcta.</td>
+            </tr>
+            <tr>
+                <td>Serialización</td>
+                <td>Content-Type</td>
+                <td>Deserialización insegura que permite la ejecución de código malicioso.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div id="other-vulnerabilities" class="category">
+    <h3>OTRAS VULNERABILIDADES</h3>
+    <table id="otherTable">
+        <thead>
+            <tr>
+                <th>Tipo de Vulnerabilidad</th>
+                <th>Encabezado de Seguridad Relacionado</th>
+                <th>Resumen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Broken Links</td>
+                <td>404 Not Found</td>
+                <td>El enlace apunta a un recurso inexistente o no accesible.</td>
+            </tr>
+            <tr>
+                <td>Online hashes cracked</td>
+                <td>Security</td>
+                <td>Hashes de contraseñas u otros datos críticos que han sido vulnerados.</td>
+            </tr>
+            <tr>
+                <td>API Key Leaks</td>
+                <td>Authorization, X-API-Key</td>
+                <td>Las claves de API están expuestas en lugar de ser gestionadas adecuadamente.</td>
+            </tr>
+            <tr>
+                <td>Session-fixation</td>
+                <td>Set-Cookie</td>
+                <td>El atacante puede fijar una sesión en el servidor, obteniendo acceso no autorizado.</td>
+            </tr>
+            <tr>
+                <td>JWT - JSON Web Token</td>
+                <td>Authorization (header)</td>
+                <td>Permite tokens JWT mal formateados o sin verificar su firma.</td>
+            </tr>
+            <tr>
+                <td>bypass proxy inverso mal configurado</td>
+                <td>X-Forwarded-For, X-Forwarded-Proto</td>
+                <td>Permite la manipulación de encabezados X-Forwarded para evadir la seguridad.</td>
+            </tr>
+            <tr>
+                <td>BYPASS 401 CABEZERA X-FORWARDER</td>
+                <td>X-Forwarded-For</td>
+                <td>Posibilidad de eludir la protección de acceso con la cabecera X-Forwarded-For.</td>
+            </tr>
+            <tr>
+                <td>HA PROXY BYPASS</td>
+                <td>X-Forwarded-For</td>
+                <td>El servidor proxy está mal configurado, permitiendo eludir las reglas de seguridad.</td>
+            </tr>
+            <tr>
+                <td>Amazon Bucket S3 AWS</td>
+                <td>Access-Control-Allow-Origin</td>
+                <td>Mal configuración en buckets de Amazon S3, permitiendo el acceso no autorizado.</td>
+            </tr>
+            <tr>
+                <td>Kubernetes</td>
+                <td>Authorization (header)</td>
+                <td>Errores de configuración en entornos Kubernetes pueden permitir la explotación de recursos.</td>
+            </tr>
+            <tr>
+                <td>Container - Docker</td>
+                <td>Authorization (header)</td>
+                <td>Configuración incorrecta de contenedores Docker puede permitir escalación de privilegios.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function searchVulnerabilities() {
+        let input = document.getElementById("searchInput").value.toUpperCase();
+        let tables = document.querySelectorAll("table tbody");
+        
+        tables.forEach(table => {
+            let rows = table.getElementsByTagName("tr");
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName("td");
+                let match = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toUpperCase().includes(input)) {
+                        match = true;
+                    }
+                }
+                rows[i].style.display = match ? "" : "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
