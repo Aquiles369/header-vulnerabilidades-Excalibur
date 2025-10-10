@@ -60,7 +60,7 @@ buscador (Cliente / Servidor / Otras), buscar por nombre/header/resumen.
 <picture> <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width ="1050" > </picture>
 <br>
 
-### <picture> <img src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHliczM5ODZvOHJxY21mcGFwMDQ4Y3l3MDJmN3VwbjJiMDhtaHZkOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IiCU3HoPN5YtnD98qh/giphy.gif" width = 80px>  </picture> Secciones & Categorías
+### <picture> <img src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHliczM5ODZvOHJxY21mcGFwMDQ4Y3l3MDJmN3VwbjJiMDhtaHZkOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IiCU3HoPN5YtnD98qh/giphy.gif" width = 80px>  </picture> Secciones & Categorías<br><br>
 
 
 - CLIENTE
