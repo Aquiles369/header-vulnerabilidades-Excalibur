@@ -31,7 +31,7 @@
 **En bug bounty, el mapeo “vuln ↔ header” suele estar roto: info en wikis, RFCs, blogs y notas perdidas. Eso te frena: querés validar rápido si un hallazgo tiene huella en headers, priorizar, y recordar la explicación corta para reportar sin ir a Google.<br><br>
 Excalibur te da un hub offline: un índice navegable que conecta tipo de vulnerabilidad, encabezado y resumen, con buscador inmediato y edición en vivo. Resultado: menos alt+tab, más impacto.</a>.** 
 
-<br>
+<br><br>
 
 ### <picture> <img src = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHE2YTMzcHZ3MTdwOWRkNWF2b3BvOGpsazFlZHRpdThzaG1wdGl5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AbWjauiuqyl8A7k2Ad/giphy.gif" width = 75px>  </picture> Qué aporta y cómo beneficia <br><br>
 **• Mapa mental listo para la caza: tablas por Cliente, Servidor y Otras, con el header más relevante para cada finding (p. ej., Open Redirect → Location, CORS → Access-Control-Allow-Origin, CSRF → SameSite, XSS/CSP → Content-Security-Policy, XXE → Content-Type: application/xml, Request Smuggling → Transfer-Encoding, etc.).<br><br>
@@ -62,8 +62,7 @@ buscador (Cliente / Servidor / Otras), buscar por nombre/header/resumen.
 
 ### <picture> <img src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHliczM5ODZvOHJxY21mcGFwMDQ4Y3l3MDJmN3VwbjJiMDhtaHZkOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IiCU3HoPN5YtnD98qh/giphy.gif" width = 80px>  </picture> Secciones & Categorías<br><br>
 
-
-- CLIENTE
+- CLIENTE<br>
 
 • Open Redirect — Location — redirige sin validar destino.
 
