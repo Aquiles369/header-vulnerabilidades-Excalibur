@@ -21,7 +21,7 @@
 <br><br> 
 
 <p align="center">
- <img  height="420rem" alt="GIF" src="https://github.com/Aquiles369/iconos/blob/main/metodos_http_y_header_demo_1.gif"/>
+ <img  height="420rem" alt="GIF" src="https://github.com/Aquiles369/iconos/blob/main/demo_cors_excalibur.gif"/>
 </p>
 
 <br>
