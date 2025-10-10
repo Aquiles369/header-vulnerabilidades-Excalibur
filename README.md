@@ -25,7 +25,7 @@
 
 <br>
 <picture> <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width ="1050" > </picture>
-<br>
+<br><br>
 
 ### <picture> <img src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXhvZzBlOTRha2tsazZ3dzBhNGFqdWtzYXRlenRpaWd2aTVsczJxbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/4ZEHd4101jXIfWcUKK/giphy.gif" width = 75px>  </picture> Problema que resuelve<br><br>
 **En bug bounty, el mapeo “vuln ↔ header” suele estar roto: info en wikis, RFCs, blogs y notas perdidas. Eso te frena: querés validar rápido si un hallazgo tiene huella en headers, priorizar, y recordar la explicación corta para reportar sin ir a Google.<br><br>
